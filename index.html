@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>簿記3級 第24回 50問｜振り返り</title>
+<meta name="description" content="ふくしままさゆき「本試験レベル問題50問 ㉔/25」の解き直し用ページ。全50問の問題文と正解、論点別の正答率、間違いの型をまとめたもの。">
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --ink: #16191d;
+  --ink-sub: #585f6b;
+  --line: #dfe3e8;
+  --accent: #1d4ed8;
+  --ok: #0f7b4f;
+  --ok-bg: #e4f4ec;
+  --ng: #b42318;
+  --ng-bg: #fdeceb;
+  --ans-bg: #f3f6fd;
+  --radius: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --card: #1c1f25;
+    --ink: #e8eaed;
+    --ink-sub: #a2aab6;
+    --line: #2d323a;
+    --accent: #8ab0ff;
+    --ok: #5fd0a0;
+    --ok-bg: #16302a;
+    --ng: #ff9b92;
+    --ng-bg: #341f1f;
+    --ans-bg: #1f2531;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI",
+    "Yu Gothic", Meiryo, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  text-align: left;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 16px 80px; }
+h1, h2, h3 { line-height: 1.45; }
+
+.hero { padding: 40px 0 8px; }
+.hero .eyebrow {
+  margin: 0 0 6px; font-size: .85rem; letter-spacing: .04em; color: var(--ink-sub);
+}
+.hero h1 { margin: 0 0 10px; font-size: 1.6rem; }
+.hero .lead { margin: 0; color: var(--ink-sub); font-size: .95rem; }
+
+.score {
+  display: grid; gap: 12px; margin: 24px 0 8px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.score div {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px 16px;
+}
+.score dt { margin: 0; font-size: .8rem; color: var(--ink-sub); }
+.score dd { margin: 2px 0 0; font-size: 1.55rem; font-weight: 700; letter-spacing: .01em; }
+.score dd small { font-size: .8rem; font-weight: 400; color: var(--ink-sub); }
+
+section { margin-top: 40px; }
+section > h2 {
+  font-size: 1.12rem; margin: 0 0 4px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--line);
+}
+section > .sub { margin: 8px 0 18px; color: var(--ink-sub); font-size: .9rem; }
+
+.topics { list-style: none; margin: 0; padding: 0; }
+.tb {
+  display: grid; align-items: center; gap: 10px;
+  grid-template-columns: 7.5em 1fr 3.2em;
+  padding: 5px 0; font-size: .9rem;
+}
+.tb-name { color: var(--ink-sub); }
+.tb-track { background: var(--line); border-radius: 999px; height: 9px; overflow: hidden; }
+.tb-fill { display: block; height: 100%; background: var(--ok); border-radius: 999px; }
+.tb-num { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-sub); }
+#tb5 .tb-fill { width: 17%; }
+#tb6 .tb-fill { width: 20%; }
+#tb7 .tb-fill { width: 25%; }
+#tb8 .tb-fill { width: 29%; }
+#tb9 .tb-fill { width: 50%; }
+#tb10 .tb-fill { width: 83%; }
+.tb-fill.zero { background: var(--ng); width: 4px; }
+
+.vh {
+  position: absolute; width: 1px; height: 1px; margin: -1px;
+  padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.pairs { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.pairs th, .pairs td {
+  border-bottom: 1px solid var(--line); padding: 9px 8px; text-align: left; vertical-align: top;
+}
+.pairs th { color: var(--ink-sub); font-weight: 600; white-space: nowrap; }
+.pairs td:first-child { white-space: nowrap; font-weight: 600; }
+
+.focus { display: grid; gap: 14px; }
+.focus article {
+  background: var(--card); border: 1px solid var(--line);
+  border-left: 4px solid var(--ng); border-radius: var(--radius); padding: 14px 16px;
+}
+.focus h3 { margin: 0 0 6px; font-size: 1rem; }
+.focus p { margin: 0; font-size: .93rem; color: var(--ink-sub); }
+.focus p + p { margin-top: 8px; }
+.focus strong { color: var(--ink); }
+
+.bar {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 18px 0; padding: 10px 12px;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.bar .seg { display: flex; gap: 6px; }
+.bar button {
+  font: inherit; font-size: .86rem; cursor: pointer;
+  padding: 5px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: transparent; color: var(--ink);
+}
+.bar button[aria-pressed="true"] {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+.bar select {
+  font: inherit; font-size: .86rem; padding: 5px 8px;
+  border: 1px solid var(--line); border-radius: 8px;
+  background: var(--card); color: var(--ink);
+}
+.bar .count { margin-left: auto; font-size: .82rem; color: var(--ink-sub); }
+
+.q {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px; margin-bottom: 14px;
+  scroll-margin-top: 150px;
+}
+.q[hidden] { display: none; }
+.q-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+.q-no { font-weight: 700; font-size: .95rem; letter-spacing: .02em; }
+.q-mark {
+  display: inline-grid; place-items: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  font-size: .78rem; font-weight: 700; line-height: 1;
+}
+.q-mark.ok { background: var(--ok-bg); color: var(--ok); }
+.q-mark.ng { background: var(--ng-bg); color: var(--ng); }
+.q-title { margin: 0; font-size: .98rem; flex: 1 1 12em; }
+.q-topic {
+  font-size: .75rem; color: var(--ink-sub);
+  border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px;
+}
+.q-body p { margin: 0 0 6px; font-size: .95rem; }
+.q-body ul { margin: 4px 0 8px; padding-left: 1.3em; font-size: .93rem; }
+.q-body li { margin: 2px 0; }
+.g-label {
+  display: inline-block; margin-right: 6px;
+  font-size: .74rem; color: var(--ink-sub);
+  border: 1px solid var(--line); border-radius: 4px; padding: 0 6px;
+}
+.g.ask .g-label { display: none; }
+.g + .g { margin-top: 8px; }
+
+details.ans { margin-top: 10px; border-top: 1px dashed var(--line); padding-top: 10px; }
+details.ans > summary {
+  cursor: pointer; display: inline-block;
+  font-size: .86rem; font-weight: 600; color: var(--accent);
+  padding: 3px 12px; border: 1px solid currentColor; border-radius: 999px;
+  list-style: none;
+}
+details.ans > summary::-webkit-details-marker { display: none; }
+details.ans[open] > summary { color: var(--ink-sub); }
+.ans-body {
+  margin-top: 10px; padding: 12px 14px;
+  background: var(--ans-bg); border-radius: 8px;
+}
+.ans-body p { margin: 0 0 6px; font-size: .95rem; }
+.ans-body ul { margin: 4px 0 6px; padding-left: 1.3em; font-size: .93rem; }
+.g.answer p:first-of-type { font-weight: 600; }
+.g.note { font-size: .88rem; color: var(--ink-sub); }
+.g.note p { font-size: .88rem; }
+
+.shared {
+  margin: 0 0 12px; padding: 12px 14px;
+  background: var(--ans-bg); border-radius: 8px;
+}
+.shared-t { margin: 0 0 8px; font-size: .86rem; font-weight: 600; }
+.tw { overflow-x: auto; }
+.tw table { border-collapse: collapse; font-size: .85rem; min-width: 420px; }
+.tw th, .tw td { border: 1px solid var(--line); padding: 5px 9px; text-align: left; }
+.tw th { color: var(--ink-sub); font-weight: 600; }
+
+footer {
+  margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line);
+  font-size: .82rem; color: var(--ink-sub);
+}
+footer a { color: var(--accent); }
+footer p { margin: 0 0 6px; }
+
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  .hero { padding-top: 28px; }
+  .hero h1 { font-size: 1.35rem; }
+  .tb { grid-template-columns: 6.5em 1fr 3em; font-size: .84rem; }
+  .bar { gap: 6px; padding: 9px 10px; }
+  .bar .count { width: 100%; margin-left: 0; text-align: right; }
+  .q { padding: 14px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">日商簿記3級／本試験レベル問題50問 ㉔</p>
+  <h1>第24回 50問の振り返り</h1>
+  <p class="lead">2026年11月14日に初めて解いた結果と、全50問の問題文・正解。答えは伏せてあるので、解き直しにそのまま使えます。</p>
+</header>
+
+<dl class="score">
+  <div><dt>正解</dt><dd>13<small> / 50問</small></dd></div>
+  <div><dt>正答率</dt><dd>26.0<small>％</small></dd></div>
+  <div><dt>解き直す問題</dt><dd>37<small>問</small></dd></div>
+  <div><dt>実施日</dt><dd>11/14<small>（初回）</small></dd></div>
+</dl>
+
+<section>
+  <h2>論点別の正答率</h2>
+  <p class="sub">低い順。赤い印は、その論点を1問も取れていないという意味です。</p>
+  <ul class="topics"><li class="tb" id="tb0"><span class="tb-name">消費税・税金</span><span class="tb-track"><span class="tb-fill zero"></span></span><span class="tb-num">0/6</span></li><li class="tb" id="tb1"><span class="tb-name">純資産・利益</span><span class="tb-track"><span class="tb-fill zero"></span></span><span class="tb-num">0/4</span></li><li class="tb" id="tb2"><span class="tb-name">経過勘定</span><span class="tb-track"><span class="tb-fill zero"></span></span><span class="tb-num">0/3</span></li><li class="tb" id="tb3"><span class="tb-name">帳簿・伝票</span><span class="tb-track"><span class="tb-fill zero"></span></span><span class="tb-num">0/2</span></li><li class="tb" id="tb4"><span class="tb-name">固定資産</span><span class="tb-track"><span class="tb-fill zero"></span></span><span class="tb-num">0/1</span></li><li class="tb" id="tb5"><span class="tb-name">商品売買</span><span class="tb-track"><span class="tb-fill"></span></span><span class="tb-num">1/6</span></li><li class="tb" id="tb6"><span class="tb-name">貸倒引当金</span><span class="tb-track"><span class="tb-fill"></span></span><span class="tb-num">1/5</span></li><li class="tb" id="tb7"><span class="tb-name">決算整理</span><span class="tb-track"><span class="tb-fill"></span></span><span class="tb-num">1/4</span></li><li class="tb" id="tb8"><span class="tb-name">現金・預金</span><span class="tb-track"><span class="tb-fill"></span></span><span class="tb-num">2/7</span></li><li class="tb" id="tb9"><span class="tb-name">債権債務・手形</span><span class="tb-track"><span class="tb-fill"></span></span><span class="tb-num">3/6</span></li><li class="tb" id="tb10"><span class="tb-name">費用・給与</span><span class="tb-track"><span class="tb-fill"></span></span><span class="tb-num">5/6</span></li></ul>
+</section>
+
+<section>
+  <h2>この50問の特徴：条件を1つだけ変えたペア問題</h2>
+  <p class="sub">同じ場面で条件を1つだけ変えて連続で出してきます。<strong>ペアの両方を落としている</strong>ところが、いま一番弱い論点です。</p>
+  <table class="pairs">
+    <thead><tr><th scope="col">ペア</th><th scope="col">変えている条件</th><th scope="col">結果</th></tr></thead>
+    <tbody>
+      <tr><td>Q31 / Q32</td><td>貸倒引当金の残高 50万円 → <strong>3万円</strong>（足りる／足りない）</td><td>×／○</td></tr>
+      <tr><td>Q33 / Q34</td><td>回収日 3月10日 → <strong>4月10日</strong>（決算をまたぐ）</td><td>×／×</td></tr>
+      <tr><td>Q17 / Q18</td><td>従業員の立替払い → 会社のICカード（仮払金）</td><td>○／○</td></tr>
+      <tr><td>Q5 / Q6</td><td>同じ取引を B社側 → A社側</td><td>×／×</td></tr>
+      <tr><td>Q40 (ⅰ)(ⅱ)</td><td>借主側 → 貸主側</td><td>×</td></tr>
+      <tr><td>Q41 (ⅰ)(ⅱ)</td><td>貸主側 → 借主側</td><td>×</td></tr>
+      <tr><td>Q30 (ⅰ)(ⅱ)</td><td>引当金残高 4万円 → 8万円（不足 → 超過）</td><td>×</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>先に直す3つ</h2>
+  <p class="sub">落とし方が同じで、他の問題にも波及するもの。</p>
+  <div class="focus">
+    <article>
+      <h3>1. 決算をまたいだかどうかで貸方が変わる（Q33・Q34）</h3>
+      <p>どちらも「倒産で貸倒処理した売掛金のうち1万円を回収した」という同じ場面です。回収日が決算前なら<strong>貸倒損失の取消</strong>、決算後なら<strong>償却債権取立益（収益）</strong>。</p>
+      <p>決算で各勘定の数値が確定してしまうので、あとから前期の費用は取り消せない、と考えます。第18回で残していた Q56〜Q58 と同じ論点です。</p>
+    </article>
+    <article>
+      <h3>2. 貸倒引当金が足りるか足りないか（Q31・Q32）</h3>
+      <p>前期販売分の債権だけが引当金の対象。当期販売分は最初から<strong>貸倒損失</strong>です。さらに引当金が不足する場合、<strong>不足分も貸倒損失</strong>に回します。</p>
+      <p>Q32 は前期分10万円に対して引当金が3万円しかないので、貸倒引当金30,000・貸倒損失270,000。「引当金を全部使ってから損失」ではなく「前期分の不足だけが損失に乗る」と押さえます。</p>
+    </article>
+    <article>
+      <h3>3. 月数を2回数える（Q29）</h3>
+      <p>期中に取得し、期中に売却した固定資産。<strong>前期末までの累計額</strong>（17か月分）と<strong>当期首から売却までの減価償却費</strong>（4か月分）を別々に数えます。</p>
+      <p>どちらか片方を忘れると簿価がずれて、売却損益の符号まで変わります。</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>全50問</h2>
+  <p class="sub">問題文は画面表示どおり。正解は「正解を見る」で開きます。共通の前提：<strong>消費税は考慮しない（指示がある場合を除く）／決算日は毎年3月31日／三分法・売上原価は仕入勘定で算定／法人税・住民税及び事業税は「法人税等」</strong>。</p>
+
+  <div class="bar">
+    <div class="seg" role="group" aria-label="正誤でしぼる">
+      <button type="button" data-state="all" aria-pressed="true">すべて</button>
+      <button type="button" data-state="ng" aria-pressed="false">ミスのみ</button>
+      <button type="button" data-state="ok" aria-pressed="false">正解のみ</button>
+    </div>
+    <label class="vh" for="topic">論点</label>
+    <select id="topic">
+      <option value="all">すべての論点</option>
+      <option value="現金・預金">現金・預金</option><option value="商品売買">商品売買</option><option value="債権債務・手形">債権債務・手形</option><option value="費用・給与">費用・給与</option><option value="決算整理">決算整理</option><option value="経過勘定">経過勘定</option><option value="固定資産">固定資産</option><option value="貸倒引当金">貸倒引当金</option><option value="消費税・税金">消費税・税金</option><option value="純資産・利益">純資産・利益</option><option value="帳簿・伝票">帳簿・伝票</option>
+    </select>
+    <button type="button" id="toggle-all" aria-pressed="false">正解をすべて開く</button>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div id="list">
+<article class="q" id="q1" data-state="ok" data-topic="現金・預金"><header class="q-head"><span class="q-no">Q1</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">郵便為替証書で売掛金回収</h3><span class="q-topic">現金・預金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>売掛金3万円の回収として、3万円分の郵便為替証書を受け取った。</p></div><div class="g ask"><p>動画の時短メモ（<strong>試験本番では御法度</strong>と明言）：（借）（貸）は省略して「現金30,000／売掛金30,000」。売掛金→売×金、当座預金→当預、減価償却累計額→減〜額。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）現金 30,000 ／（貸）売掛金 30,000</strong></p></div><div class="g note"><span class="g-label">補足</span><p>郵便為替証書は通貨代用証券。∴簿記では「現金」扱いする。</p></div></div></details></article>
+<article class="q" id="q2" data-state="ok" data-topic="現金・預金"><header class="q-head"><span class="q-no">Q2</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">決算期中の現金過不足（実際有高が多い）</h3><span class="q-topic">現金・預金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>×2年5月31日、帳簿上の「現金」勘定の残高は11万円であるが、金庫内の現金は以下のとおりであった（他の場所に現金はない）。</p><ul><li>・1万円札 10枚　・5千円札 2枚　・500円硬貨 1枚</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>実際有高110,500円に帳簿を合わせる。帳簿の現金を500円増やす。 --- ## Q3〜Q12（2026/11/14 取得・すべて11/10のミス） 動画の画面から取得。問題文・正解とも画面の記載どおり。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）現金 500 ／（貸）現金過不足 500</strong></p></div></div></details></article>
+<article class="q" id="q3" data-state="ng" data-topic="現金・預金"><header class="q-head"><span class="q-no">Q3</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">現金過不足の原因判明（前問Q2の続き）</h3><span class="q-topic">現金・預金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>「現金」勘定不足額500円（実際残高の方が500円超過）の原因は、今朝売掛金500円分を現金で回収したが、仕訳をし忘れていたことが原因だと判明した。</p><ul><li>Q2の仕訳：（借）現金500（貸）現金過不足500</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>原因が判明したら、仮置きした現金過不足を<strong>反対側で消し</strong>、本来の科目（売掛金の減少）を立てる。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）現金過不足 500 ／（貸）売掛金 500</strong></p></div></div></details></article>
+<article class="q" id="q4" data-state="ng" data-topic="現金・預金"><header class="q-head"><span class="q-no">Q4</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">小口現金の報告を受けたとき</h3><span class="q-topic">現金・預金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>金曜日の夜、経理部の出納係は支店の用度係から、今週1週間分の経費支払分の以下の領収書を受け取った。なお毎週月曜日の朝、出納係は用度係に、小口現金を現金で渡している（小口現金が10万円になるように補充）。</p><ul><li>・支店従業員の出張時の電車代 5,000円</li><li>・支店でのガス料金 2,000円</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>報告を受けた時点で、使われた分だけ小口現金を減らして費用に振り替える。補充は別の取引。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）旅費交通費 5,000・水道光熱費 2,000 ／（貸）小口現金 7,000</strong></p></div></div></details></article>
+<article class="q" id="q5" data-state="ng" data-topic="現金・預金"><header class="q-head"><span class="q-no">Q5</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">小切手が3社を回る（B社側）</h3><span class="q-topic">現金・預金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>2月1日、A社はB社（パソコンショップ）から、A社財務部で使用するためにパソコン1台（30万）を購入し、代金については小切手を振り出し、B社に渡した。2月5日、B社は上記小切手を、C社に対する買掛金30万円の支払のためにC社に渡した。2月9日、C社はA社からの借入金30万円の返済として上記小切手を渡した（利息はない）。</p></div><div class="g ask"><span class="g-label">論点</span><p>他人振出小切手を受け取ったら現金。それを支払いに使えば現金が減る。自社が関係しない日は仕訳なし。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解（B社側）</span><ul><li>2月1日：<strong>（借）現金 300,000 ／（貸）売上 300,000</strong></li><li>2月5日：<strong>（借）買掛金 300,000 ／（貸）現金 300,000</strong></li><li>2月9日：<strong>仕訳なし</strong></li></ul></div></div></details></article>
+<article class="q" id="q6" data-state="ng" data-topic="現金・預金"><header class="q-head"><span class="q-no">Q6</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">同じ取引をA社側で（Q5と同じ取引）</h3><span class="q-topic">現金・預金</span></header><div class="q-body"><div class="g ask"><span class="g-label">論点</span><p>自分が振り出した小切手が戻ってきたら、減らしておいた当座預金を戻す。現金にしない。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解（A社側）</span><ul><li>2月1日：<strong>（借）備品 300,000 ／（貸）当座預金 300,000</strong></li><li>2月5日：<strong>仕訳なし</strong></li><li>2月9日：<strong>（借）当座預金 300,000 ／（貸）貸付金 300,000</strong></li></ul></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>2/9の借方に注意！自己振出の小切手を受け取ったら「当座預金」！</strong></p></div></div></details></article>
+<article class="q" id="q7" data-state="ng" data-topic="現金・預金"><header class="q-head"><span class="q-no">Q7</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">当座借越のある口座から未払金を払う</h3><span class="q-topic">現金・預金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以前家具量販店D社から、当社の応接室用のソファーをツケで購入した分の代金50万円について、本日小切手を振り出して支払った（E銀行に開設している当座預金の小切手を使用）。なおE銀行に開設している当座預金残高は20万円しかないが、E銀行とは限度額1億円の当座借越契約を締結している。また、管理のために預金口座ごとに勘定科目を設定している。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）未払金 500,000 ／（貸）当座預金E銀行 500,000</strong></p></div><div class="g note"><span class="g-label">動画のポイント</span><ul><li><strong>借方は「買掛金」ではない！</strong>（応接室用のソファー＝商品ではない）</li><li><strong>当座預金がマイナス残高になっても期中は関係ない</strong></li><li><strong>「当座預金＋銀行名」</strong></li></ul></div></div></details></article>
+<article class="q" id="q8" data-state="ng" data-topic="商品売買"><header class="q-head"><span class="q-no">Q8</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">引取費用を売主・買主で半額ずつ負担</h3><span class="q-topic">商品売買</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>商品5,000円を掛けで仕入れた。その際、引取費用200円を現金で支払った。なお引取費用については売主と買主とで半額ずつ負担することになっている（200円を半額ずつ負担）。</p><ul><li>(ⅰ)「立替金」勘定を用いる場合の仕訳</li><li>(ⅱ)「立替金」勘定を用いない場合の仕訳</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>自社負担100円は仕入に含める。売主負担100円は立替金、または買掛金から差し引く。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>(ⅰ)<strong>（借）仕入 5,100・立替金 100 ／（貸）買掛金 5,000・現金 200</strong></li><li>(ⅱ)<strong>（借）仕入 5,100 ／（貸）買掛金 4,900・現金 200</strong></li></ul></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>購入する側は、付随費用は取得原価に含めるため、どちらの場合も「仕入」は5,100円。</strong></p></div></div></details></article>
+<article class="q" id="q9" data-state="ng" data-topic="商品売買"><header class="q-head"><span class="q-no">Q9</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">移動平均法（商品Bは無関係）</h3><span class="q-topic">商品売買</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>2月1日、単価100円の商品Aを20個仕入れた。なおこの時点で在庫はなかった。2月10日、単価110円の商品Aを80個仕入れた。2月12日、単価105円の商品Bを20個仕入れた。2月20日、商品Aを1個300円で2個販売した。2月20日に販売した商品2個分の売上原価を、移動平均法で求めなさい。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>216円</strong></p><ul><li>（100円×20個 ＋ 110円×80個）÷ 100個 ＝ 108円/個</li><li>108円 × 2個 ＝ 216円</li></ul></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>問われているのは商品Aのみ。商品Bは本問には関係ない。</strong></p></div></div></details></article>
+<article class="q" id="q10" data-state="ng" data-topic="商品売買"><header class="q-head"><span class="q-no">Q10</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">記帳済みの前受金を売上へ充当</h3><span class="q-topic">商品売買</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>売価100万円の商品（仕入値80万円）を販売し、得意先に当該商品を引き渡した。なお手付金として先日20万円が当座預金に入金されており（記帳済み）、残額は掛けとした。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）前受金 200,000・売掛金 800,000 ／（貸）売上 1,000,000</strong></p></div><div class="g note"><span class="g-label">動画のポイント</span><ul><li>前受金を受け取ったときは（借）当座預金200,000（貸）前受金200,000 と仕訳していたはず</li><li><strong>三分法なので、販売の仕訳に仕入値は関係ない</strong></li></ul></div></div></details></article>
+<article class="q" id="q11" data-state="ng" data-topic="商品売買"><header class="q-head"><span class="q-no">Q11</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">同じプリンターを備品と商品に分ける（B社側）</h3><span class="q-topic">商品売買</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>B社は、オフィス機器を扱うA社からプリンターを2台購入した（売価は1台20万円）。代金は来月末に当座預金口座から銀行振込で支払うこととなった（管理のために預金口座ごとに勘定科目を設定している）。なおB社は当該プリンターのうち1台を自社内の人事部で使用し、もう1台は顧客に販売するために商品として購入した。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）備品 200,000 ／（貸）未払金 200,000</strong>　<strong>（借）仕入 200,000 ／（貸）買掛金 200,000</strong></p></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>貸方に注意！当座預金からの振込はまだされていません。</strong></p></div></div></details></article>
+<article class="q" id="q12" data-state="ng" data-topic="消費税・税金"><header class="q-head"><span class="q-no">Q12</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">税抜方式での返品</h3><span class="q-topic">消費税・税金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>税抜経理方式（消費税率10％）での仕訳を示しなさい。先日掛けで販売した商品（税抜の仕入値200円、税抜の販売価格300円）が、本日返品された。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）売上 300・仮受消費税 30 ／（貸）売掛金 330</strong></p></div><div class="g note"><span class="g-label">動画のポイント</span><p>販売したときは（借）売掛金330（貸）売上300・仮受消費税30 と仕訳していたはず。<strong>この逆仕訳をすればいいだけ。</strong> --- ## Q13〜Q42（問題文 2026/11/14・正解 2026/11/15 取得） ★印は11/10のミス。</p></div></div></details></article>
+<article class="q" id="q13" data-state="ok" data-topic="債権債務・手形"><header class="q-head"><span class="q-no">Q13</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">クレジット売掛金の入金</h3><span class="q-topic">債権債務・手形</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>先日クレジットカード払いで商品（売価10万円）を販売しており（記帳済み）、本日信販会社からその代金が当座預金に入金された。なお、信販会社の取扱手数料は売価の2％であり、信販会社への手数料は販売時に計上している。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）当座預金 98,000 ／（貸）クレジット売掛金 98,000</p></div><div class="g note"><span class="g-label">補足</span><p>販売したときは（借）クレジット売掛金 98,000・（借）支払手数料 2,000 ／（貸）売上 100,000 と仕訳していたはず。</p></div></div></details></article>
+<article class="q" id="q14" data-state="ng" data-topic="債権債務・手形"><header class="q-head"><span class="q-no">Q14</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">手形仕入れと自社負担の引取運賃</h3><span class="q-topic">債権債務・手形</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>A社側の仕訳を示しなさい。A社はB社から商品1万円を仕入れ、代金については約束手形を振り出した（期日は振出日から120日後）。なおA社負担の引取運賃500円はA社が現金で支払った。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）仕入 10,500 ／（貸）支払手形 10,000・（貸）現金 500</p></div></div></details></article>
+<article class="q" id="q15" data-state="ok" data-topic="債権債務・手形"><header class="q-head"><span class="q-no">Q15</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">借用の証拠としての約束手形</h3><span class="q-topic">債権債務・手形</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>A社側の仕訳を示しなさい。A社はB社から現金100万円を借り入れ、その借用の証拠として約束手形を振り出してB社に渡した。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）現金 1,000,000 ／（貸）手形借入金 1,000,000</p></div></div></details></article>
+<article class="q" id="q16" data-state="ng" data-topic="債権債務・手形"><header class="q-head"><span class="q-no">Q16</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">買掛金を電子記録債務へ</h3><span class="q-topic">債権債務・手形</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>A社側の仕訳を示しなさい。A社はB社に対する買掛金10万円について、電子債権記録機関に債務発生の記録を行った。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）買掛金 100,000 ／（貸）電子記録債務 100,000</p></div><div class="g note"><span class="g-label">補足</span><p>買掛金が電子記録債務に変更された。</p></div></div></details></article>
+<article class="q" id="q17" data-state="ok" data-topic="費用・給与"><header class="q-head"><span class="q-no">Q17</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">従業員の立替経費を精算</h3><span class="q-topic">費用・給与</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>9月2日、従業員が出張から帰社した。当該従業員が出張中に立て替えた経費について、以下の領収書を呈示されたので、ただちに当該従業員の普通預金口座に当座預金口座から振り込んだ。</p><ul><li>・ホテルの宿泊代 8,000円　・電車代 2,000円</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）旅費交通費 10,000 ／（貸）当座預金 10,000</p></div></div></details></article>
+<article class="q" id="q18" data-state="ok" data-topic="費用・給与"><header class="q-head"><span class="q-no">Q18</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">ICカード（仮払金）で支払っていた場合</h3><span class="q-topic">費用・給与</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>9月2日、従業員が出張から帰社した。出張中に支払った経費について以下の領収書を呈示された；</p><ul><li>・ホテルの宿泊代 8,000円　・電車代 2,000円</li><li>なお、当該従業員は上記支払いを会社用のICカードを用いて支払った。（ICカードにチャージしたときに「仮払金」勘定を用いた）</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>Q17とセット。実際にお金が動いたかどうかで貸方が変わる。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）旅費交通費 10,000 ／（貸）仮払金 10,000</p></div><div class="g note"><span class="g-label">補足</span><p>チャージしたときに（たとえば現金で5万円チャージしたとすると）（借）仮払金 50,000 ／（貸）現金 50,000 と仕訳していたはず。</p></div></div></details></article>
+<article class="q" id="q19" data-state="ok" data-topic="費用・給与"><header class="q-head"><span class="q-no">Q19</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">鉛筆・ハガキ・収入印紙の購入</h3><span class="q-topic">費用・給与</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>仕訳を示しなさい（消費税は考慮しなくてよい）。A商店に行き、以下の物品を現金で購入した。</p><ul><li>・鉛筆（1本100円）10本　・ハガキ（1枚100円）20枚　・収入印紙（1枚400円）10枚</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）消耗品費 1,000・（借）通信費 2,000・（借）租税公課 4,000 ／（貸）現金 7,000</p></div><div class="g note"><span class="g-label">補足</span><p>ハガキ・切手に関する消費税の課税・非課税等は、購入相手（購入場所）によって変わるため、「消費税は考慮しなくてよい」と明示しているだけ。</p></div></div></details></article>
+<article class="q" id="q20" data-state="ok" data-topic="債権債務・手形"><header class="q-head"><span class="q-no">Q20</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">商品券の受取りと換金</h3><span class="q-topic">債権債務・手形</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下は連続した取引である。それぞれの仕訳を示しなさい。</p><ul><li>8月8日、顧客に商品10,000円を販売した。代金については当店所属の商店街が発行した商品券6,000円分と現金4,000円を受け取った。</li><li>8月31日、上記商品券を商店街本部に持参して換金請求したところ、直ちに当店の当座預金口座に振り込まれた。</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>8月8日：（借）受取商品券 6,000・（借）現金 4,000 ／（貸）売上 10,000</li><li>8月31日：（借）当座預金 6,000 ／（貸）受取商品券 6,000</li></ul></div></div></details></article>
+<article class="q" id="q21" data-state="ng" data-topic="債権債務・手形"><header class="q-head"><span class="q-no">Q21</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">役員貸付金と半年分の利息</h3><span class="q-topic">債権債務・手形</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下は連続した取引である。それぞれの仕訳を示しなさい。</p><ul><li>×1年8月1日、当社役員に以下の条件で貸付を行い、小切手を振り出して当該役員に渡した。（利息は月割計算）<ul><li>元本100万円、年利2％、貸付期間半年、利息は半年後の返済時に元本とともに一括返済</li></ul></li><li>×2年1月31日、当該役員から現金で一括返済された。</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>×1年8月1日：（借）役員貸付金 1,000,000 ／（貸）当座預金 1,000,000</li><li>×2年1月31日：（借）現金 1,010,000 ／（貸）役員貸付金 1,000,000・（貸）受取利息 10,000</li></ul></div><div class="g note"><span class="g-label">補足</span><p>利息は半年分なので、100万円 × 2％ × （6ヶ月 ÷ 12ヶ月）＝ 1万円</p></div></div></details></article>
+<article class="q" id="q22" data-state="ok" data-topic="費用・給与"><header class="q-head"><span class="q-no">Q22</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">給料の天引きと納付（3取引）</h3><span class="q-topic">費用・給与</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下は連続した取引である。それぞれの仕訳を示しなさい。</p><ul><li>10月28日、当社の全従業員の給料を当座預金から支払った；給料総額600万円、源泉徴収所得税60万円、社会保険料控除40万円</li><li>11月10日、上記源泉所得税を小切手を振り出して納付した。</li><li>11月30日、会社負担の社会保険料50万円とともに当座預金口座から10月給料分の社会保険料を支払った。（労働保険は考慮しなくてよい）</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>10月28日：（借）給料 6,000,000 ／（貸）所得税預り金 600,000・（貸）社会保険料預り金 400,000・（貸）当座預金 5,000,000</li><li>11月10日：（借）所得税預り金 600,000 ／（貸）当座預金 600,000</li><li>11月30日：（借）社会保険料預り金 400,000・（借）法定福利費 500,000 ／（貸）当座預金 900,000</li></ul></div></div></details></article>
+<article class="q" id="q23" data-state="ng" data-topic="費用・給与"><header class="q-head"><span class="q-no">Q23</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">家賃・仲介手数料・敷金と消費税</h3><span class="q-topic">費用・給与</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>税抜経理方式（消費税率10％）での仕訳を示しなさい。事務所の賃借にあたり、1ヶ月分家賃10万円、仲介手数料20万円及び敷金30万円と、必要な消費税額の合計額を、小切手を振り出して支払った。なお当該家賃及び仲介手数料には10％の消費税がかかり、敷金には消費税はかからないものとする。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）支払家賃 100,000・（借）支払手数料 200,000・（借）差入保証金 300,000・（借）仮払消費税 30,000 ／（貸）当座預金 630,000</p></div><div class="g note"><span class="g-label">補足</span><p>敷金は「差入保証金」勘定（資産）を用いる。</p></div></div></details></article>
+<article class="q" id="q24" data-state="ng" data-topic="純資産・利益"><header class="q-head"><span class="q-no">Q24</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">設立時の株式発行</h3><span class="q-topic">純資産・利益</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>㈱ふくしま出版側の仕訳を示しなさい。ふくしままさゆきは、株式会社ふくしま出版の設立にあたり、以下のとおり当座預金に出資を受け、各出資者に株式を発行した。株式は、1株1万円で以下の3者が引き受けた；</p><ul><li>・ふくしままさゆき 1,000株　・ふくしままさゆきの妻 500株　・株式会社ふくしま商事 500株</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）当座預金 20,000,000 ／（貸）資本金 20,000,000</p></div><div class="g note"><span class="g-label">補足</span><p>2,000株 × 10,000円 ＝ 20,000,000円</p></div></div></details></article>
+<article class="q" id="q25" data-state="ng" data-topic="決算整理"><header class="q-head"><span class="q-no">Q25</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">決算の現金過不足（原因一部判明）</h3><span class="q-topic">決算整理</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>必要な決算整理仕訳を示しなさい。3月31日の営業が終了し、決算になった。3月31日の営業時間の最後に金庫内の現金を数えたところ、1万円札が10枚、100円玉が100枚のみであった。一方この時点で帳簿上の「現金」勘定残高は10万円であった。差額の原因を調査したところ、期中に売掛金12,000円を現金で回収したが、その記帳をし忘れていたことが判明したが、その他の差額原因は不明であった。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）現金 12,000 ／（貸）売掛金 12,000　および　（借）雑損 2,000 ／（貸）現金 2,000</p></div><div class="g note"><span class="g-label">補足</span><p>帳簿上 112,000 ＞ 実際残高 110,000（実際残高が正）。決算時に判明した差額については「現金過不足」勘定を通さない。</p></div></div></details></article>
+<article class="q" id="q26" data-state="ng" data-topic="決算整理"><header class="q-head"><span class="q-no">Q26</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">当座借越の決算振替</h3><span class="q-topic">決算整理</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>必要な決算整理仕訳を示しなさい。×2年3月30日に買掛金200万円の支払のために、小切手200万円を振り出し、小切手を受け取った先方は直ちに銀行に支払呈示をした。なお小切手を振り出した時点で、当座預金残高は1万円しかなかったが、予め銀行と当座借越契約（限度額1億円）を締結している。それ以降当座預金の入出金はなく、決算になった。</p></div><div class="g ask"><span class="g-label">論点</span><p>Q7（期中は振替しない）と対になる決算の処理。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）当座預金 1,990,000 ／（貸）当座借越 1,990,000　※「借入金」でも可</p></div><div class="g note"><span class="g-label">補足</span><p>×2年3月30日の仕訳は（借）買掛金 2,000,000 ／（貸）当座預金 2,000,000。この結果、帳簿上の「当座預金」残高（および実際預金残高も）は▲199万円、つまり借金状態。決算時に負債勘定に振り替える。</p></div></div></details></article>
+<article class="q" id="q27" data-state="ok" data-topic="決算整理"><header class="q-head"><span class="q-no">Q27</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">未使用の切手・収入印紙を貯蔵品へ</h3><span class="q-topic">決算整理</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>必要な決算整理仕訳を示しなさい。設立初年度の期中に購入した郵便切手および収入印紙の購入枚数と、それらの初年度の期末時点での在庫枚数は以下のとおりであった；</p><ul><li>・200円の郵便切手 100枚購入・期末在庫 1枚</li><li>・2,000円の収入印紙 100枚購入・期末在庫 10枚</li><li>・4,000円の収入印紙 100枚購入・期末在庫 10枚</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）貯蔵品 60,200 ／（貸）通信費 200・（貸）租税公課 60,000</p></div><div class="g note"><span class="g-label">補足</span><p>期中はそれぞれ「通信費」「租税公課」という費用勘定で処理する。しかし換金価値があるため、期末に残っている分は資産（「貯蔵品」勘定）に振り替える。</p></div></div></details></article>
+<article class="q" id="q28" data-state="ng" data-topic="経過勘定"><header class="q-head"><span class="q-no">Q28</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">前受家賃（貸主側）</h3><span class="q-topic">経過勘定</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>必要な決算整理仕訳を示しなさい。A社は本社ビルを所有している。×1年6月1日より、そのうちの一部の部屋をテナントに貸している。テナントとの賃貸契約で賃料（月100万円）は前払いとなっており、毎月末に当社の当座預金口座に翌月分の賃料が振り込まれ、当社では適切・適時に期中仕訳をしている。×2年3月31日が終了し決算になった。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）受取家賃 1,000,000 ／（貸）前受家賃 1,000,000</p></div><div class="g note"><span class="g-label">補足</span><p>3月末には4月分賃料を（借）当座預金 1,000,000 ／（貸）受取家賃 1,000,000 と仕訳している。しかし本来4月分の収益計上は4月にすべき。よって3月末に計上した4月分賃料収益を取消して、負債（来月部屋を貸さなければならない義務）とする。</p></div></div></details></article>
+<article class="q" id="q29" data-state="ng" data-topic="固定資産"><header class="q-head"><span class="q-no">Q29</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">期中取得・期中売却の減価償却</h3><span class="q-topic">固定資産</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>売却時の仕訳を示しなさい。×3年7月31日、所有している以下のパソコン1台を45万円で売却した。代金については翌月末に受け取ることとした。</p><ul><li>取得日：×1年11月1日　取得価額：65万円</li><li>減価償却方法：定額法・残存価額5万円・耐用年数5年</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）備品減価償却累計額 170,000・（借）減価償却費 40,000・（借）未収入金 450,000 ／（貸）備品 650,000・（貸）固定資産売却益 10,000</p></div><div class="g note"><span class="g-label">補足</span><p>年間償却費は（65万円 − 5万円）÷ 5年 ＝ 12万円/年 ＝ 1万円/月。前期末の決算整理仕訳後の減価償却累計額は5ヶ月＋1年＝17ヶ月分（17万円）。当期首から売却時までは4ヶ月分（4万円）。簿価は 65万 − 17万 − 4万 ＝ 44万円なので、1万円の利益。</p></div></div></details></article>
+<article class="q" id="q30" data-state="ng" data-topic="貸倒引当金"><header class="q-head"><span class="q-no">Q30</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">貸倒引当金の差額補充（2ケース）</h3><span class="q-topic">貸倒引当金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>必要な決算整理仕訳を示しなさい（差額補充法）。期末日時点で「売掛金」残高は100万円、「電子記録債権」残高は100万円である。これらのうち3％は来期に回収できないものと見積もられた。</p><ul><li>（ⅰ）期末日時点で「貸倒引当金」残高が4万円の場合</li><li>（ⅱ）期末日時点で「貸倒引当金」残高が8万円の場合</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>（ⅰ）（借）貸倒引当金繰入 20,000 ／（貸）貸倒引当金 20,000</li><li>（ⅱ）（借）貸倒引当金 20,000 ／（貸）貸倒引当金戻入 20,000</li></ul></div><div class="g note"><span class="g-label">補足</span><p>引当金要設定額は（100万円 ＋ 100万円）× 3％ ＝ 6万円</p></div></div></details></article>
+<article class="q" id="q31" data-state="ng" data-topic="貸倒引当金"><header class="q-head"><span class="q-no">Q31</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">貸倒れ（引当金が足りる場合）</h3><span class="q-topic">貸倒引当金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>×3年5月1日（貸倒時）の仕訳を示しなさい（3月31日が期末日）。</p><ul><li>×3年3月1日、A社に商品10万円を掛けで販売した。</li><li>×3年4月1日、A社に商品20万円を掛けで販売した。</li><li>×3年5月1日、A社が倒産し、上記債権30万円が回収不能となった。なおこの倒産の時点で「貸倒引当金」残高は50万円である。</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>前期販売分（3/1）と当期販売分（4/1）を分ける。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）貸倒引当金 100,000・（借）貸倒損失 200,000 ／（貸）売掛金 300,000</p></div><div class="g note"><span class="g-label">補足</span><p>前期以前に販売した分の債権については「貸倒引当金」を設定済みなので「貸倒引当金」を借記。一方、当期に販売した分の債権については設定されてないので「貸倒損失」を借記。</p></div></div></details></article>
+<article class="q" id="q32" data-state="ok" data-topic="貸倒引当金"><header class="q-head"><span class="q-no">Q32</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">貸倒れ（引当金が足りない場合）</h3><span class="q-topic">貸倒引当金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>Q31と同じ取引だが、倒産の時点で「貸倒引当金」残高は<strong>3万円</strong>である。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）貸倒引当金 30,000・（借）貸倒損失 270,000 ／（貸）売掛金 300,000</p></div><div class="g note"><span class="g-label">補足</span><p>前期以前に販売した分の債権（10万円）については設定済みなので「貸倒引当金」。ただし「貸倒引当金」の不足分（7万円）は「貸倒損失」とするしかない。当期に販売した分の債権（20万円）も設定されてないので「貸倒損失」。</p></div></div></details></article>
+<article class="q" id="q33" data-state="ng" data-topic="貸倒引当金"><header class="q-head"><span class="q-no">Q33</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">償却済み債権の回収（同一期内）</h3><span class="q-topic">貸倒引当金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>×3年3月10日の仕訳を示しなさい（3月31日が決算日）。</p><ul><li>×2年5月10日、A社が倒産し、A社に対する売掛金20万円（×2年2月販売分）が回収不能となった。なおこの時点で「貸倒引当金」残高はなかった。</li><li>×3年3月10日、上記売掛金のうち1万円が現金で回収できた。</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）現金 10,000 ／（貸）貸倒損失 10,000</p></div><div class="g note"><span class="g-label">補足</span><p>×2年5月10日の仕訳は（借）貸倒損失 200,000 ／（貸）売掛金 200,000。しかし、このうち1万円分が回収できたので1万円分だけ取消。</p></div></div></details></article>
+<article class="q" id="q34" data-state="ng" data-topic="貸倒引当金"><header class="q-head"><span class="q-no">Q34</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">償却済み債権の回収（期をまたぐ）</h3><span class="q-topic">貸倒引当金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>Q33と同じだが、回収日が<strong>×3年4月10日</strong>。</p></div><div class="g ask"><span class="g-label">論点</span><p>Q33とQ34の違いが論点。決算をまたいだかどうか。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）現金 10,000 ／（貸）償却債権取立益 10,000</p></div><div class="g note"><span class="g-label">補足</span><p>回収した×3年4月10日は決算（×3年3月31日）をまたいでいるため、前問（Q33）のように「費用計上を取り消す（「貸倒損失」の貸記）」というわけにはいかない（決算で各勘定科目の数値が確定してしまっているため）。そこで貸方は収益とする。</p></div></div></details></article>
+<article class="q" id="q35" data-state="ok" data-topic="商品売買"><header class="q-head"><span class="q-no">Q35</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">売上原価の算定</h3><span class="q-topic">商品売買</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下の情報に基づき、各問いに答えなさい。なお当期は返品・値引は行われなかった。</p><ul><li>期首商品有高は10万円、当期商品仕入高は50万円、期末商品有高は20万円</li><li>（ⅰ）必要な決算整理仕訳を示しなさい。</li><li>（ⅱ）当期の売上原価はいくらか？</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>（ⅰ）（借）仕入 100,000 ／（貸）繰越商品 100,000　および　（借）繰越商品 200,000 ／（貸）仕入 200,000（しーくりくりしー）</li><li>（ⅱ）40万円（10万円 ＋ 50万円 − 20万円）</li></ul></div></div></details></article>
+<article class="q" id="q36" data-state="ng" data-topic="純資産・利益"><header class="q-head"><span class="q-no">Q36</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">当期純利益を求める</h3><span class="q-topic">純資産・利益</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>当期純利益を求めなさい。なお税金は考慮しなくてよい。A社の当期中の取引による収益は「売上」600万円と「受取家賃」30万円、費用は「仕入」280万円と「給料」30万円のみであり、他に収益・費用はなかった。また期首商品棚卸高は50万円、期末商品棚卸高は30万円であった。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>300万円</strong>（収益630万円−費用310万円）</p></div></div></details></article>
+<article class="q" id="q37" data-state="ng" data-topic="消費税・税金"><header class="q-head"><span class="q-no">Q37</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">不明入金と仮受金（税抜方式）</h3><span class="q-topic">消費税・税金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>税抜経理方式（消費税率10％）での仕訳を示しなさい。</p><ul><li>2月2日、当社が有する当座預金口座の入出金情報を見てみたところ、2,200円の入金があったが、何の代金の入金なのかが不明であるが、とりあえず入金処理をしておくこととした。</li><li>2月5日、先日の不明入金は1月31日に掛販売した商品（税抜価格2,000円）の掛代金だということが判明した。</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>2月2日：（借）当座預金 2,200 ／（貸）仮受金 2,200</li><li>2月5日：（借）仮受金 2,200 ／（貸）売掛金 2,200</li></ul></div><div class="g note"><span class="g-label">補足</span><p>1月31日は（借）売掛金 2,200 ／（貸）売上 2,000・（貸）仮受消費税 200。つまり税抜経理方式でも「売掛金」は税込金額で計上される。</p></div></div></details></article>
+<article class="q" id="q38" data-state="ng" data-topic="消費税・税金"><header class="q-head"><span class="q-no">Q38</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">法人税等の確定（中間納付あり）</h3><span class="q-topic">消費税・税金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>必要な決算整理仕訳を示しなさい。決算において、法人税が50万円、住民税が7万円、事業税が5万円と算出された。なお当期中に中間納付として30万円を小切手で納付済みである。（上記法人税等の金額は中間納付考慮前の金額）また、算出された税金は小切手で納付予定である。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）法人税等 620,000 ／（貸）仮払法人税等 300,000・（貸）未払法人税等 320,000</p></div><div class="g note"><span class="g-label">補足</span><p>この後「未払法人税等」32万円を小切手で納付するが、納付は本問では仕訳しない。</p></div></div></details></article>
+<article class="q" id="q39" data-state="ng" data-topic="消費税・税金"><header class="q-head"><span class="q-no">Q39</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">消費税の確定</h3><span class="q-topic">消費税・税金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>必要な決算整理仕訳を示しなさい。決算になった。当期1年間で支払った消費税額は500万円、受け取った消費税額は600万円であった。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）仮受消費税 6,000,000 ／（貸）仮払消費税 5,000,000・（貸）未払消費税 1,000,000</p></div></div></details></article>
+<article class="q" id="q40" data-state="ng" data-topic="経過勘定"><header class="q-head"><span class="q-no">Q40</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">前払家賃・前受家賃（借主と貸主）</h3><span class="q-topic">経過勘定</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>×3年3月31日を決算日とする決算整理仕訳を示しなさい。×2年12月1日に、A社と不動産会社B社は、将来1年分のA社の事務所について賃貸契約を締結し、同日、借主であるA社はこの先1年分の家賃120万円について小切手を振り出して支払った。</p><ul><li>（ⅰ）借主A社側の決算整理仕訳</li><li>（ⅱ）貸主B社側の決算整理仕訳</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>（ⅰ）（借）前払家賃 800,000 ／（貸）支払家賃 800,000</li><li>（ⅱ）（借）受取家賃 800,000 ／（貸）前受家賃 800,000</li></ul></div><div class="g note"><span class="g-label">補足</span><p>×2年12月1日の仕訳は、A社（借）支払家賃 1,200,000 ／（貸）当座預金 1,200,000、B社（借）現金 1,200,000 ／（貸）受取家賃 1,200,000。そして×3年3月31日時点では8ヶ月未経過。</p></div></div></details></article>
+<article class="q" id="q41" data-state="ng" data-topic="経過勘定"><header class="q-head"><span class="q-no">Q41</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">未収利息・未払利息（4か月分）</h3><span class="q-topic">経過勘定</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>×3年3月31日を決算日とする決算整理仕訳を示しなさい。×2年12月1日にA社はB社に、以下の条件で現金100万円を貸し付けた；</p><ul><li>返済期日：×3年11月30日（利息は月割計算）</li><li>利息：年利1.2％（返済期日に元本とともに一括返済）</li><li>（ⅰ）A社側の決算整理仕訳を示しなさい。</li><li>（ⅱ）B社側の決算整理仕訳を示しなさい。</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>第18回Q52と同じ型。経過した月数分だけ計上する。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>（ⅰ）（借）未収利息 4,000 ／（貸）受取利息 4,000</li><li>（ⅱ）（借）支払利息 4,000 ／（貸）未払利息 4,000</li></ul></div><div class="g note"><span class="g-label">補足</span><p>利息は年12,000円なので月1,000円。期中は利息の授受がないため期中は利息の仕訳なし。期日になるまで利息は支払われないため、×3年3月31日時点では利息に関する仕訳はなにもされていない。しかし利息は4ヶ月分発生している。</p></div></div></details></article>
+<article class="q" id="q42" data-state="ok" data-topic="費用・給与"><header class="q-head"><span class="q-no">Q42</span><span class="q-mark ok"><span aria-hidden="true">○</span><span class="vh">正解</span></span><h3 class="q-title">給料支給時の仕訳（計算期間にまたがる）</h3><span class="q-topic">費用・給与</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>当社の従業員の毎月の給料計算期間は前月21日から当月20日であり、当月28日が給料支給日である（当座預金口座から支払）。</p><ul><li>×2年2月21日から2月末日までの給料は80万円</li><li>×2年3月1日から3月20日までの給料は640万円</li><li>×2年3月21日から3月末日までの給料は50万円</li><li>×2年3月28日支給の給料にかかる源泉所得税等は以下のとおり；<ul><li>源泉所得税70万　社会保険料控除額50万　社会保険料会社負担額60万</li><li>（期中では社会保険料会社負担額は翌月の納付時に費用処理している）</li></ul></li><li>×2年3月28日の<strong>給料支給時</strong>の仕訳を示しなさい。（労働保険は考慮しなくてよい）</li></ul></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p>（借）給料 7,200,000 ／（貸）所得税預り金 700,000・（貸）社会保険料預り金 500,000・（貸）当座預金 6,000,000</p></div><div class="g note"><span class="g-label">補足</span><p>3月28日に支給するのは2月21日〜3月20日分の給料（80万円 ＋ 640万円 ＝ 720万円）。3月21日〜3月末日の50万円は4月28日支給分なので含めない。 --- ## Q43〜Q50（2026/11/14 取得・すべて11/10のミス）</p></div></div></details></article>
+<article class="q" id="q43" data-state="ng" data-topic="純資産・利益"><header class="q-head"><span class="q-no">Q43</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">株主総会の決議（決議時）</h3><span class="q-topic">純資産・利益</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>×3年5月28日に開催されたA社の株主総会で、繰越利益剰余金300万円について、以下のように決定された。</p><ul><li>配当金支払：100万円</li><li>利益準備金の積立：配当金支払額の10分の1</li><li>残額は次回の株主総会まで繰り越すこととした。</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>減らすのは<strong>配当分＋準備金分だけ</strong>（100万＋10万＝110万）。繰越利益剰余金の残高300万円を全額振り替えない。決議時点では払っていないので未払配当金（負債）。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）繰越利益剰余金 1,100,000 ／（貸）未払配当金 1,000,000・利益準備金 100,000</strong></p></div></div></details></article>
+<article class="q" id="q44" data-state="ng" data-topic="純資産・利益"><header class="q-head"><span class="q-no">Q44</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">配当金の支払いと源泉徴収（支払時）</h3><span class="q-topic">純資産・利益</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>先日開催されたA社の株主総会で、繰越利益剰余金300万円について、以下のように決定されたところ、本日、配当金を当座預金口座から支払った。なおこの際、20％の源泉徴収を行った。</p><ul><li>株主総会決議内容：配当金支払100万円／利益準備金の積立：配当金支払額の10分の1／残額は次回の株主総会まで繰り越すこととした。</li><li>なお源泉徴収税額については「預り金」勘定を用いること。</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>Q43とセット。負債の未払配当金100万円を消すが、預金から出るのは80万円。差の20万円は株主から預かった税金（負債）。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）未払配当金 1,000,000 ／（貸）当座預金 800,000・預り金 200,000</strong></p></div><div class="g note"><span class="g-label">動画のポイント</span><p>後日、A社は株主に代わって所得税等20万円を納めます。</p></div></div></details></article>
+<article class="q" id="q45" data-state="ng" data-topic="帳簿・伝票"><header class="q-head"><span class="q-no">Q45</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">補助簿をすべて答える</h3><span class="q-topic">帳簿・伝票</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>当社はB社から100万円のパソコンを購入した。この際、代金の半額分を現金で支払い、残額については約束手形を振り出した。</p><ul><li>(ⅰ)当社がこのパソコンを総務部で使用するために購入した場合に使用される補助簿をすべて答えよ。</li><li>(ⅱ)当社がこのパソコンを顧客に販売するために仕入れた場合に使用される補助簿をすべて答えよ。</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>仕訳を先に立てて、出てくる科目ごとに補助簿を拾う。(ⅱ)は商品なので<strong>仕入帳が増える</strong>のが差分。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><ul><li>(ⅰ)<strong>固定資産台帳、現金出納帳、支払手形記入帳</strong></li><li>(ⅱ)<strong>商品有高帳、現金出納帳、支払手形記入帳、仕入帳</strong></li></ul></div><div class="g note"><span class="g-label">動画のポイント</span><p>当然、主要簿（総勘定元帳と仕訳帳）も使用されます。</p></div></div></details></article>
+<article class="q" id="q46" data-state="ng" data-topic="帳簿・伝票"><header class="q-head"><span class="q-no">Q46</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">入金伝票が起票済みのときの振替伝票</h3><span class="q-topic">帳簿・伝票</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>商品100万円を販売し代金のうち20万円を現金で受け取り、残額を掛けとした。この際、入金伝票に「売掛金200,000」と記入した。この場合に作成される振替伝票の仕訳を示しなさい。</p></div><div class="g ask"><span class="g-label">解説（画面）</span><ul><li>起こしたい仕訳は（借）現金200,000・売掛金800,000（貸）売上1,000,000</li><li>そして入金伝票で（借）現金200,000（貸）売掛金200,000と起票済み</li><li>よって必要な仕訳は（借）売掛金1,000,000（貸）売上1,000,000</li></ul></div><div class="g ask"><span class="g-label">論点</span><p><strong>全体の仕訳 −（起票済みの伝票）＝ 残りの伝票</strong>。2枚を合算すると本来の仕訳に戻る。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）売掛金 1,000,000 ／（貸）売上 1,000,000</strong></p></div></div></details></article>
+<article class="q" id="q47" data-state="ng" data-topic="消費税・税金"><header class="q-head"><span class="q-no">Q47</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">証憑から読む中間申告の納税</h3><span class="q-topic">消費税・税金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>小切手を振り出して右の証憑のとおり納税した。</p><ul><li>証憑（納税領収証書）：申告区分「中間申告」／法人の県民税25,000／法人の事業税・地方法人特別税135,000／合計160,000</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>証憑の「申告区分」を見る。中間申告＝先払いなので資産（仮払法人税等）。確定申告なら未払法人税等を消す。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）仮払法人税等 160,000 ／（貸）当座預金 160,000</strong></p></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>中間申告なので「仮払法人税等」</strong></p></div></div></details></article>
+<article class="q" id="q48" data-state="ng" data-topic="商品売買"><header class="q-head"><span class="q-no">Q48</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">売上原価の算定（しくり・くりしー）</h3><span class="q-topic">商品売買</span></header><div class="shared"><p class="shared-t">Q48〜Q50 共通の資料：決算整理前残高試算表（単位：万円）</p><div class="tw"><table><thead><tr><th scope="col">借方</th><th scope="col">勘定科目</th><th scope="col">貸方</th></tr></thead><tbody><tr><td>300</td><td>現金</td><td></td></tr><tr><td>700</td><td>売掛金</td><td></td></tr><tr><td></td><td>貸倒引当金</td><td>8</td></tr><tr><td>600</td><td>繰越商品</td><td></td></tr><tr><td>120</td><td>仮払消費税</td><td></td></tr><tr><td></td><td>買掛金</td><td>200</td></tr><tr><td></td><td>仮受消費税</td><td>150</td></tr><tr><td></td><td>資本金</td><td>500</td></tr><tr><td></td><td>繰越利益剰余金</td><td>62</td></tr><tr><td></td><td>売上</td><td>1,800</td></tr><tr><td>1,000</td><td>仕入</td><td></td></tr><tr><td><strong>2,720</strong></td><td></td><td><strong>2,720</strong></td></tr></tbody></table></div></div><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下の前T/Bに基づき、以下の事項に関する決算整理仕訳を示しなさい。</p><ul><li>【決算整理事項】期末商品棚卸高は700万円である。</li></ul></div><div class="g ask"><span class="g-label">論点</span><p>前T/Bの繰越商品600万円は<strong>前期末＝当期の期首</strong>の在庫。1年間そのまま放置されている数字なので、これが期首商品棚卸高。期末の700万円と取り違えない。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）仕入 6,000,000 ／（貸）繰越商品 6,000,000</strong>　<strong>（借）繰越商品 7,000,000 ／（貸）仕入 7,000,000</strong></p></div></div></details></article>
+<article class="q" id="q49" data-state="ng" data-topic="消費税・税金"><header class="q-head"><span class="q-no">Q49</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">消費税の決算整理</h3><span class="q-topic">消費税・税金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下の前T/Bに基づき、消費税について必要な決算整理を行う。</p></div><div class="g ask"><span class="g-label">論点</span><p>仮受（貸方残高150万）を借方で、仮払（借方残高120万）を貸方で、それぞれ0にする。差額30万円がこれから納める負債。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）仮受消費税 1,500,000 ／（貸）仮払消費税 1,200,000・未払消費税 300,000</strong></p></div></div></details></article>
+<article class="q" id="q50" data-state="ng" data-topic="決算整理"><header class="q-head"><span class="q-no">Q50</span><span class="q-mark ng"><span aria-hidden="true">×</span><span class="vh">不正解</span></span><h3 class="q-title">未処理事項＋貸倒引当金の差額補充</h3><span class="q-topic">決算整理</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>右の前T/Bに基づき、以下の事項に関する仕訳を示しなさい。</p><ul><li>【未処理事項】期末日に売掛金100万円が現金で回収されていたが、未処理である。</li><li>【決算整理事項】売掛金期末残高について、差額補充法により2％の貸倒を見積もる。</li></ul></div><div class="g ask"><span class="g-label">論点</span><p><strong>未処理事項を先に反映してから見積もる。</strong>売掛金700万円−100万円＝600万円が期末残高。600万×2％＝12万円、既存の引当金8万円との差額4万円を繰り入れる。T/Bの700万円でそのまま計算しない。 --- ## 文字起こしから読み取れた出題論点（暫定・要確認） 自動字幕の解説部分から読み取った範囲。<strong>数字の誤変換が多いため、各問の金額・条件は画面で確認するまで確定としない。</strong>論点の見当をつける用途に限る。 動画の解説に出てきた論点（順不同）：現金と通貨代用証券／現金過不足（期中・決算）／小口現金／当座借越／返品／自己振出小切手の戻り／引取運賃の負担（売主・買主で折半）／移動平均法／クレジット売掛金／手形と引取運賃／手形借入金／電子記録債務／旅費交通費／ICカードのチャージと仮払金／消耗品費・通信費・租税公課の使い分け／受取商品券／役員貸付金と利息の月割り／所得税預り金・社会保険料（労使折半）／事務所家賃と消費税／資本金／貯蔵品／経過勘定（前受・未収・未払）／減価償却と期中売却／貸倒引当金の繰入・差額補充／貸倒損失と償却債権取立益／売上原価の算定／損益振替と繰越利益剰余金／消費税の確定（未払消費税）／法人税等と中間申告（仮払法人税等）／配当と利益準備金／補助簿の選択／伝票と合算 ## 次にやること</p></div><div class="g ask"><p><strong>全50問の問題文と正解を取得済み</strong>（問題文 2026/11/14、残り29問の正解 2026/11/15）。これ以上の取り込みは不要。</p></div><div class="g ask"><p>次は答え合わせではなく<strong>解き直し</strong>に使う。ミスした37問を、正解を見ずに自力で解く。</p></div><div class="g ask"><p>取得方法（再取得が必要になったとき）：Claude in Chrome で動画を開き、各問の解説画面（問題文＋正解が同時に表示される）を撮る。アプリ内ブラウザでは動画フレームが撮れないので使わない。解説画面の位置は、canvas で画面の非白ピクセル率を測って切り替わりを先に特定すると、無駄な撮影を避けられる。</p></div><div class="g ask"><p>第18回で残っている「貸倒引当金・貸倒れ・回収」（Q56〜Q58）は、この50問にも同じ論点が複数ある。まとめて復習する。</p></div><div class="g ask"><p>第18回70問（45／70問）と、この50問は母集団が違うため、率だけで比較しない。</p></div></div><details class="ans"><summary>正解を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）現金 1,000,000 ／（貸）売掛金 1,000,000</strong>　<strong>（借）貸倒引当金繰入 40,000 ／（貸）貸倒引当金 40,000</strong></p></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>要設定額は600万円×2％＝12万円</strong></p></div></div></details></article>
+  </div>
+</section>
+
+<footer>
+  <p>出典：ふくしままさゆき「簿記3級　本試験レベル（？）問題50問！㉔/25」（2019年12月25日公開）の画面表示を書き起こしたもの。</p>
+  <p>自己採点は2026年11月14日時点。手元の記録は <code>第24回-復習記録.md</code> が原本です。</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var list = document.getElementById('list');
+  var cards = Array.prototype.slice.call(list.querySelectorAll('.q'));
+  var stateBtns = Array.prototype.slice.call(document.querySelectorAll('.seg button'));
+  var topicSel = document.getElementById('topic');
+  var countEl = document.getElementById('count');
+  var toggleAll = document.getElementById('toggle-all');
+  var state = 'all';
+
+  function apply() {
+    var topic = topicSel.value;
+    var shown = 0;
+    cards.forEach(function (c) {
+      var okState = (state === 'all') || (c.dataset.state === state);
+      var okTopic = (topic === 'all') || (c.dataset.topic === topic);
+      var show = okState && okTopic;
+      c.hidden = !show;
+      if (show) shown++;
+    });
+    countEl.textContent = shown + ' / ' + cards.length + ' 問';
+  }
+
+  stateBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      state = b.dataset.state;
+      stateBtns.forEach(function (o) {
+        o.setAttribute('aria-pressed', String(o === b));
+      });
+      apply();
+    });
+  });
+
+  topicSel.addEventListener('change', apply);
+
+  toggleAll.addEventListener('click', function () {
+    var open = toggleAll.getAttribute('aria-pressed') !== 'true';
+    toggleAll.setAttribute('aria-pressed', String(open));
+    toggleAll.textContent = open ? '正解をすべて閉じる' : '正解をすべて開く';
+    list.querySelectorAll('details.ans').forEach(function (d) { d.open = open; });
+  });
+
+  apply();
+})();
+</script>
+</body>
+</html>
