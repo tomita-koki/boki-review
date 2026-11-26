@@ -213,6 +213,9 @@ details.ans[open] > summary { color: var(--ink-sub); }
   background: var(--ans-bg); border-radius: 8px;
 }
 .shared-t { margin: 0 0 8px; font-size: .86rem; font-weight: 600; }
+details.shared-d { margin: 10px 0 0; }
+details.shared-d > summary { cursor: pointer; color: var(--accent); font-size: .9rem; font-weight: 600; }
+details.shared-d[open] > summary { margin-bottom: 8px; }
 .tw { overflow-x: auto; }
 .tw table { border-collapse: collapse; font-size: .85rem; min-width: 420px; }
 .tw th, .tw td { border: 1px solid var(--line); padding: 5px 9px; text-align: left; }
@@ -308,7 +311,7 @@ footer p { margin: 0 0 6px; }
 
 <section>
   <h2>全50問</h2>
-  <p class="sub">番号の横の印は「初回 → 2回目 → 3回目 → 4回目 → 5回目」の順です。「−」はその回に解いていない問題です（2回目・3回目はミスした問題だけ、5回目はよく間違える30問だけを解いたため）。4回目は全50問を通しで解きました。問題文は画面表示どおり。正解と解説は「正解と解説を見る」で開きます。「解説」はこのページ用に書いた説明、「補足」「動画のポイント」「動画の解説」は動画の画面表示、「論点」は復習メモです。共通の前提：<strong>消費税は考慮しない（指示がある場合を除く）／決算日は毎年3月31日／三分法・売上原価は仕入勘定で算定／法人税・住民税及び事業税は「法人税等」</strong>。</p>
+  <p class="sub">番号の横の印は「初回 → 2回目 → 3回目 → 4回目 → 5回目」の順です。「−」はその回に解いていない問題です（2回目・3回目はミスした問題だけ、5回目はよく間違える30問だけを解いたため）。4回目は全50問を通しで解きました。「並び替える」を押すと問題の順番がランダムになり、論点の並びに頼らずに解けます（絞り込みと組み合わせられます。順番はこの端末のブラウザにだけ保存）。問題文は画面表示どおり。正解と解説は「正解と解説を見る」で開きます。「解説」はこのページ用に書いた説明、「補足」「動画のポイント」「動画の解説」は動画の画面表示、「論点」は復習メモです。共通の前提：<strong>消費税は考慮しない（指示がある場合を除く）／決算日は毎年3月31日／三分法・売上原価は仕入勘定で算定／法人税・住民税及び事業税は「法人税等」</strong>。</p>
 
   <div class="bar">
     <div class="seg" role="group" aria-label="正誤でしぼる">
@@ -323,6 +326,8 @@ footer p { margin: 0 0 6px; }
       <option value="現金・預金">現金・預金</option><option value="商品売買">商品売買</option><option value="債権債務・手形">債権債務・手形</option><option value="費用・給与">費用・給与</option><option value="決算整理">決算整理</option><option value="経過勘定">経過勘定</option><option value="固定資産">固定資産</option><option value="貸倒引当金">貸倒引当金</option><option value="消費税・税金">消費税・税金</option><option value="純資産・利益">純資産・利益</option><option value="帳簿・伝票">帳簿・伝票</option>
     </select>
     <button type="button" id="toggle-all" aria-pressed="false">正解と解説をすべて開く</button>
+    <button type="button" id="shuffle">並び替える</button>
+    <button type="button" id="unshuffle" hidden>番号順に戻す</button>
     <span class="count" id="count"></span>
   </div>
 
@@ -375,8 +380,8 @@ footer p { margin: 0 0 6px; }
 <article class="q" id="q46" data-state="ok" data-topic="帳簿・伝票" data-focus="1"><header class="q-head"><span class="q-no">Q46</span><span class="q-marks"><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="vh">初回 不正解、2回目 不正解、3回目 不正解、4回目 不正解、5回目 正解</span></span><h3 class="q-title">入金伝票が起票済みのときの振替伝票</h3><span class="q-topic">帳簿・伝票</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>商品100万円を販売し代金のうち20万円を現金で受け取り、残額を掛けとした。この際、入金伝票に「売掛金200,000」と記入した。この場合に作成される振替伝票の仕訳を示しなさい。</p></div></div><details class="ans"><summary>正解と解説を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）売掛金 1,000,000 ／（貸）売上 1,000,000</strong></p></div><div class="g explain"><span class="g-label">解説</span><ul><li>3伝票制では、現金が入る取引は入金伝票、現金が出る取引は出金伝票、それ以外は振替伝票に書く。</li><li>入金伝票「売掛金 200,000」は（借）現金 200,000 ／（貸）売掛金 200,000 の意味（入金伝票の借方は必ず現金）。</li><li>相手科目が「売上」ではなく「売掛金」になっている → いったん全額を掛けで売り、そのうち20万円をすぐ回収した、と考える書き方。</li><li>だから振替伝票は全額の掛け売上：（借）売掛金 100万円 ／（貸）売上 100万円。</li><li>検算：2枚を足すと、売掛金は100万−20万＝80万円、現金20万円、売上100万円。本来の仕訳と一致する。</li><li>もし入金伝票が「売上 200,000」なら、振替伝票は（借）売掛金 80万円 ／（貸）売上 80万円になる。</li></ul></div><div class="g note"><span class="g-label">動画の解説</span><ul><li>起こしたい仕訳は（借）現金200,000・売掛金800,000（貸）売上1,000,000</li><li>そして入金伝票で（借）現金200,000（貸）売掛金200,000と起票済み</li><li>よって必要な仕訳は（借）売掛金1,000,000（貸）売上1,000,000</li></ul></div><div class="g note"><span class="g-label">論点</span><p><strong>全体の仕訳 −（起票済みの伝票）＝ 残りの伝票</strong>。2枚を合算すると本来の仕訳に戻る。</p></div></div></details></article>
 <article class="q" id="q47" data-state="ok" data-topic="消費税・税金" data-focus="1"><header class="q-head"><span class="q-no">Q47</span><span class="q-marks"><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="vh">初回 不正解、2回目 不正解、3回目 正解、4回目 不正解、5回目 正解</span></span><h3 class="q-title">証憑から読む中間申告の納税</h3><span class="q-topic">消費税・税金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>小切手を振り出して右の証憑のとおり納税した。</p><ul><li>証憑（納税領収証書）：申告区分「中間申告」／法人の県民税25,000／法人の事業税・地方法人特別税135,000／合計160,000</li></ul></div></div><details class="ans"><summary>正解と解説を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）仮払法人税等 160,000 ／（貸）当座預金 160,000</strong></p></div><div class="g explain"><span class="g-label">解説</span><ul><li>証憑の申告区分「中間申告」を読む。中間申告は、期の途中で税金を前もって払うこと。</li><li>最終的な税額は決算まで決まらないので、費用にせず仮払法人税等（資産の増加 → 借方）にしておく。</li><li>小切手を振り出した → 当座預金（資産）の減少 → 貸方。金額は合計欄の160,000円（25,000＋135,000）。</li><li>決算で税額が確定したら、この仮払法人税等を貸方で消す（Q38）。</li></ul></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>中間申告なので「仮払法人税等」</strong></p></div><div class="g note"><span class="g-label">論点</span><p>証憑の「申告区分」を見る。中間申告＝先払いなので資産（仮払法人税等）。確定申告なら未払法人税等を消す。</p></div></div></details></article>
 <article class="q" id="q48" data-state="ok" data-topic="商品売買" data-focus="0"><header class="q-head"><span class="q-no">Q48</span><span class="q-marks"><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark na" aria-hidden="true">−</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark na" aria-hidden="true">−</span><span class="vh">初回 不正解、2回目 正解、3回目 解いていない、4回目 正解、5回目 解いていない</span></span><h3 class="q-title">売上原価の算定（しくり・くりしー）</h3><span class="q-topic">商品売買</span></header><div class="shared"><p class="shared-t">Q48〜Q50 共通の資料：決算整理前残高試算表（単位：万円）</p><div class="tw"><table><thead><tr><th scope="col">借方</th><th scope="col">勘定科目</th><th scope="col">貸方</th></tr></thead><tbody><tr><td>300</td><td>現金</td><td></td></tr><tr><td>700</td><td>売掛金</td><td></td></tr><tr><td></td><td>貸倒引当金</td><td>8</td></tr><tr><td>600</td><td>繰越商品</td><td></td></tr><tr><td>120</td><td>仮払消費税</td><td></td></tr><tr><td></td><td>買掛金</td><td>200</td></tr><tr><td></td><td>仮受消費税</td><td>150</td></tr><tr><td></td><td>資本金</td><td>500</td></tr><tr><td></td><td>繰越利益剰余金</td><td>62</td></tr><tr><td></td><td>売上</td><td>1,800</td></tr><tr><td>1,000</td><td>仕入</td><td></td></tr><tr><td><strong>2,720</strong></td><td></td><td><strong>2,720</strong></td></tr></tbody></table></div></div><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下の前T/Bに基づき、以下の事項に関する決算整理仕訳を示しなさい。</p><ul><li>【決算整理事項】期末商品棚卸高は700万円である。</li></ul></div></div><details class="ans"><summary>正解と解説を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）仕入 6,000,000 ／（貸）繰越商品 6,000,000</strong>　<strong>（借）繰越商品 7,000,000 ／（貸）仕入 7,000,000</strong></p></div><div class="g explain"><span class="g-label">解説</span><ul><li>前T/Bの繰越商品600万円は、期首の在庫（前期末から動かしていない数字）。</li><li>1行目：期首の600万円を仕入に足す。（借）仕入 ／（貸）繰越商品。</li><li>2行目：期末の700万円を仕入から引いて資産に戻す。（借）繰越商品 ／（貸）仕入。</li><li>売上原価＝期首600万円＋仕入1,000万円−期末700万円＝900万円。</li><li>資料の単位は万円。仕訳の金額は 6,000,000 と 7,000,000。</li></ul></div><div class="g note"><span class="g-label">論点</span><p>前T/Bの繰越商品600万円は<strong>前期末＝当期の期首</strong>の在庫。1年間そのまま放置されている数字なので、これが期首商品棚卸高。期末の700万円と取り違えない。</p></div></div></details></article>
-<article class="q" id="q49" data-state="ok" data-topic="消費税・税金" data-focus="1"><header class="q-head"><span class="q-no">Q49</span><span class="q-marks"><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark na" aria-hidden="true">−</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="vh">初回 不正解、2回目 正解、3回目 解いていない、4回目 正解、5回目 正解</span></span><h3 class="q-title">消費税の決算整理</h3><span class="q-topic">消費税・税金</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下の前T/Bに基づき、消費税について必要な決算整理を行う。</p></div></div><details class="ans"><summary>正解と解説を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）仮受消費税 1,500,000 ／（貸）仮払消費税 1,200,000・未払消費税 300,000</strong></p></div><div class="g explain"><span class="g-label">解説</span><ul><li>前T/Bから数字を拾う：仮受消費税150万円（貸方）、仮払消費税120万円（借方）。</li><li>両方を0にする：仮受消費税を借方に150万円、仮払消費税を貸方に120万円。</li><li>差額30万円がこれから納める税金 → 未払消費税（負債の増加 → 貸方）。</li><li>Q39と同じ形。数字を試算表から自分で拾うところだけが違う。</li></ul></div><div class="g note"><span class="g-label">論点</span><p>仮受（貸方残高150万）を借方で、仮払（借方残高120万）を貸方で、それぞれ0にする。差額30万円がこれから納める負債。</p></div></div></details></article>
-<article class="q" id="q50" data-state="ok" data-topic="決算整理" data-focus="1"><header class="q-head"><span class="q-no">Q50</span><span class="q-marks"><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark na" aria-hidden="true">−</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="vh">初回 不正解、2回目 正解、3回目 解いていない、4回目 不正解、5回目 正解</span></span><h3 class="q-title">未処理事項＋貸倒引当金の差額補充</h3><span class="q-topic">決算整理</span></header><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>右の前T/Bに基づき、以下の事項に関する仕訳を示しなさい。</p><ul><li>【未処理事項】期末日に売掛金100万円が現金で回収されていたが、未処理である。</li><li>【決算整理事項】売掛金期末残高について、差額補充法により2％の貸倒を見積もる。</li></ul></div></div><details class="ans"><summary>正解と解説を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）現金 1,000,000 ／（貸）売掛金 1,000,000</strong>　<strong>（借）貸倒引当金繰入 40,000 ／（貸）貸倒引当金 40,000</strong></p></div><div class="g explain"><span class="g-label">解説</span><ul><li>順番が大事。①未処理事項 → ②決算整理。</li><li>①売掛金100万円の現金回収を記帳する：（借）現金 ／（貸）売掛金。売掛金は700万円−100万円＝600万円になる。</li><li>②必要な引当金：600万円×2％＝12万円。前T/Bの貸倒引当金は8万円。差額の4万円だけ繰り入れる。</li><li>700万円×2％＝14万円で計算すると、繰入が6万円になって間違える。</li></ul></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>要設定額は600万円×2％＝12万円</strong></p></div><div class="g note"><span class="g-label">論点</span><p><strong>未処理事項を先に反映してから見積もる。</strong>売掛金700万円−100万円＝600万円が期末残高。600万×2％＝12万円、既存の引当金8万円との差額4万円を繰り入れる。T/Bの700万円でそのまま計算しない。</p></div></div></details></article>
+<article class="q" id="q49" data-state="ok" data-topic="消費税・税金" data-focus="1"><header class="q-head"><span class="q-no">Q49</span><span class="q-marks"><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark na" aria-hidden="true">−</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="vh">初回 不正解、2回目 正解、3回目 解いていない、4回目 正解、5回目 正解</span></span><h3 class="q-title">消費税の決算整理</h3><span class="q-topic">消費税・税金</span></header><details class="shared-d"><summary>共通の資料（決算整理前残高試算表）を見る</summary><div class="shared"><p class="shared-t">Q48〜Q50 共通の資料：決算整理前残高試算表（単位：万円）</p><div class="tw"><table><thead><tr><th scope="col">借方</th><th scope="col">勘定科目</th><th scope="col">貸方</th></tr></thead><tbody><tr><td>300</td><td>現金</td><td></td></tr><tr><td>700</td><td>売掛金</td><td></td></tr><tr><td></td><td>貸倒引当金</td><td>8</td></tr><tr><td>600</td><td>繰越商品</td><td></td></tr><tr><td>120</td><td>仮払消費税</td><td></td></tr><tr><td></td><td>買掛金</td><td>200</td></tr><tr><td></td><td>仮受消費税</td><td>150</td></tr><tr><td></td><td>資本金</td><td>500</td></tr><tr><td></td><td>繰越利益剰余金</td><td>62</td></tr><tr><td></td><td>売上</td><td>1,800</td></tr><tr><td>1,000</td><td>仕入</td><td></td></tr><tr><td><strong>2,720</strong></td><td></td><td><strong>2,720</strong></td></tr></tbody></table></div></div></details><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>以下の前T/Bに基づき、消費税について必要な決算整理を行う。</p></div></div><details class="ans"><summary>正解と解説を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）仮受消費税 1,500,000 ／（貸）仮払消費税 1,200,000・未払消費税 300,000</strong></p></div><div class="g explain"><span class="g-label">解説</span><ul><li>前T/Bから数字を拾う：仮受消費税150万円（貸方）、仮払消費税120万円（借方）。</li><li>両方を0にする：仮受消費税を借方に150万円、仮払消費税を貸方に120万円。</li><li>差額30万円がこれから納める税金 → 未払消費税（負債の増加 → 貸方）。</li><li>Q39と同じ形。数字を試算表から自分で拾うところだけが違う。</li></ul></div><div class="g note"><span class="g-label">論点</span><p>仮受（貸方残高150万）を借方で、仮払（借方残高120万）を貸方で、それぞれ0にする。差額30万円がこれから納める負債。</p></div></div></details></article>
+<article class="q" id="q50" data-state="ok" data-topic="決算整理" data-focus="1"><header class="q-head"><span class="q-no">Q50</span><span class="q-marks"><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark na" aria-hidden="true">−</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ng" aria-hidden="true">×</span><span class="q-arrow" aria-hidden="true">→</span><span class="q-mark ok" aria-hidden="true">○</span><span class="vh">初回 不正解、2回目 正解、3回目 解いていない、4回目 不正解、5回目 正解</span></span><h3 class="q-title">未処理事項＋貸倒引当金の差額補充</h3><span class="q-topic">決算整理</span></header><details class="shared-d"><summary>共通の資料（決算整理前残高試算表）を見る</summary><div class="shared"><p class="shared-t">Q48〜Q50 共通の資料：決算整理前残高試算表（単位：万円）</p><div class="tw"><table><thead><tr><th scope="col">借方</th><th scope="col">勘定科目</th><th scope="col">貸方</th></tr></thead><tbody><tr><td>300</td><td>現金</td><td></td></tr><tr><td>700</td><td>売掛金</td><td></td></tr><tr><td></td><td>貸倒引当金</td><td>8</td></tr><tr><td>600</td><td>繰越商品</td><td></td></tr><tr><td>120</td><td>仮払消費税</td><td></td></tr><tr><td></td><td>買掛金</td><td>200</td></tr><tr><td></td><td>仮受消費税</td><td>150</td></tr><tr><td></td><td>資本金</td><td>500</td></tr><tr><td></td><td>繰越利益剰余金</td><td>62</td></tr><tr><td></td><td>売上</td><td>1,800</td></tr><tr><td>1,000</td><td>仕入</td><td></td></tr><tr><td><strong>2,720</strong></td><td></td><td><strong>2,720</strong></td></tr></tbody></table></div></div></details><div class="q-body"><div class="g ask"><span class="g-label">問題</span><p>右の前T/Bに基づき、以下の事項に関する仕訳を示しなさい。</p><ul><li>【未処理事項】期末日に売掛金100万円が現金で回収されていたが、未処理である。</li><li>【決算整理事項】売掛金期末残高について、差額補充法により2％の貸倒を見積もる。</li></ul></div></div><details class="ans"><summary>正解と解説を見る</summary><div class="ans-body"><div class="g answer"><span class="g-label">正解</span><p><strong>（借）現金 1,000,000 ／（貸）売掛金 1,000,000</strong>　<strong>（借）貸倒引当金繰入 40,000 ／（貸）貸倒引当金 40,000</strong></p></div><div class="g explain"><span class="g-label">解説</span><ul><li>順番が大事。①未処理事項 → ②決算整理。</li><li>①売掛金100万円の現金回収を記帳する：（借）現金 ／（貸）売掛金。売掛金は700万円−100万円＝600万円になる。</li><li>②必要な引当金：600万円×2％＝12万円。前T/Bの貸倒引当金は8万円。差額の4万円だけ繰り入れる。</li><li>700万円×2％＝14万円で計算すると、繰入が6万円になって間違える。</li></ul></div><div class="g note"><span class="g-label">動画のポイント</span><p><strong>要設定額は600万円×2％＝12万円</strong></p></div><div class="g note"><span class="g-label">論点</span><p><strong>未処理事項を先に反映してから見積もる。</strong>売掛金700万円−100万円＝600万円が期末残高。600万×2％＝12万円、既存の引当金8万円との差額4万円を繰り入れる。T/Bの700万円でそのまま計算しない。</p></div></div></details></article>
   </div>
 </section>
 
@@ -396,6 +401,7 @@ footer p { margin: 0 0 6px; }
   var countEl = document.getElementById('count');
   var toggleAll = document.getElementById('toggle-all');
   var state = 'all';
+  var shuffled = false;
 
   function apply() {
     var topic = topicSel.value;
@@ -409,7 +415,7 @@ footer p { margin: 0 0 6px; }
       c.hidden = !show;
       if (show) shown++;
     });
-    countEl.textContent = shown + ' / ' + cards.length + ' 問';
+    countEl.textContent = shown + ' / ' + cards.length + ' 問' + (shuffled ? '・ランダム順' : '');
   }
 
   stateBtns.forEach(function (b) {
@@ -445,6 +451,68 @@ footer p { margin: 0 0 6px; }
     target.scrollIntoView();
   }
   window.addEventListener('hashchange', reveal);
+
+  // 並び替え：順番はこの端末のブラウザにだけ保存し、読み直しても同じ順番で出す
+  var KEY = 'boki-review24-order';
+  var ids = cards.map(function (c) { return c.id; });
+  var shuffleBtn = document.getElementById('shuffle');
+  var unshuffleBtn = document.getElementById('unshuffle');
+
+  // 一覧の先頭を、上に貼り付いている絞り込みの帯のすぐ下に合わせる
+  function toListTop() {
+    var bar = document.querySelector('.bar');
+    var y = list.getBoundingClientRect().top + window.pageYOffset - bar.offsetHeight - 12;
+    window.scrollTo(0, Math.max(0, y));
+  }
+  function randomOrder() {
+    var a = ids.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var r = new Uint32Array(1);
+      window.crypto.getRandomValues(r);
+      var j = r[0] % (i + 1);
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  function setOrder(order, isShuffled) {
+    order.forEach(function (id) {
+      var c = document.getElementById(id);
+      if (c) list.appendChild(c);
+    });
+    shuffled = isShuffled;
+    unshuffleBtn.hidden = !isShuffled;
+    shuffleBtn.textContent = isShuffled ? '並び替え直す' : '並び替える';
+    apply();
+  }
+  function save(order) {
+    try {
+      if (order) localStorage.setItem(KEY, JSON.stringify(order));
+      else localStorage.removeItem(KEY);
+    } catch (e) {}
+  }
+  function load() {
+    try {
+      var o = JSON.parse(localStorage.getItem(KEY));
+      if (Array.isArray(o) && o.length === ids.length &&
+          ids.every(function (id) { return o.indexOf(id) !== -1; })) return o;
+    } catch (e) {}
+    return null;
+  }
+
+  shuffleBtn.addEventListener('click', function () {
+    var order = randomOrder();
+    save(order);
+    setOrder(order, true);
+    toListTop();
+  });
+  unshuffleBtn.addEventListener('click', function () {
+    save(null);
+    setOrder(ids, false);
+    toListTop();
+  });
+
+  var saved = load();
+  if (saved) setOrder(saved, true);
 
   apply();
 })();
